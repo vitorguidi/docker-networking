@@ -56,6 +56,10 @@ cool, it moved
 sudo ip addr add 192.168.49.1/24 dev veth-lol1
 sudo ip netns exec ns1 ip addr add 192.168.49.2/24 dev veth-lol2
 
+ip -n ns1 route add 192.168.50.0/24 via 192.168.49.2
+ip -n ns2 route add 192.168.49.0/24 via 192.168.50.2
+
+
 ping 192.168.49.2
 
 voila
